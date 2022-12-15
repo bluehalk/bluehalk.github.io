@@ -13,26 +13,32 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Truman">
+  <meta name="author" content="Codiplay">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="神经网络处理（鸢尾花数据集）       利用鸢尾花数据集，实现前向传播、反向传播，可视化loss曲线      一、神经网络概述：     1、准备数据：采集大量“特征&#x2F;标签”数据2、搭建网络：搭建神经网络结构3、优化参数：反向传播4、应用网络：传入新数据，输出分类或预测结果（前向传播）            二、代码背诵：                 import tenso">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/11/26/hello-world/index.html">
+<meta property="og:title" content="【经典代码】神经网络处理（鸢尾花数据集）">
+<meta property="og:url" content="http://example.com/2022/12/09/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86%EF%BC%88%E9%B8%A2%E5%B0%BE%E8%8A%B1%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%89/index.html">
 <meta property="og:site_name" content="Codiplay&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="神经网络处理（鸢尾花数据集）       利用鸢尾花数据集，实现前向传播、反向传播，可视化loss曲线      一、神经网络概述：     1、准备数据：采集大量“特征&#x2F;标签”数据2、搭建网络：搭建神经网络结构3、优化参数：反向传播4、应用网络：传入新数据，输出分类或预测结果（前向传播）            二、代码背诵：                 import tenso">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-26T15:46:42.885Z">
-<meta property="article:modified_time" content="2022-11-26T15:46:42.885Z">
+<meta property="og:image" content="http://example.com/img/bk.png">
+<meta property="og:image" content="http://example.com/img/%E6%88%AA%E5%9B%BE1.png">
+<meta property="og:image" content="http://example.com/img/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="http://example.com/img/iris.png">
+<meta property="article:published_time" content="2022-12-09T08:23:00.000Z">
+<meta property="article:modified_time" content="2022-12-15T14:16:25.129Z">
 <meta property="article:author" content="Truman">
+<meta property="article:tag" content="神经网络">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/bk.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Hello World - Codiplay&#39;s Blog</title>
+  <title>【经典代码】神经网络处理（鸢尾花数据集） - Codiplay&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -75,7 +81,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"☜","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"☜","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -210,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="【经典代码】神经网络处理（鸢尾花数据集）"></span>
           
         </div>
 
@@ -221,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-26 23:46" pubdate>
-          2022年11月26日 晚上
+        <time datetime="2022-12-09 16:23" pubdate>
+          2022年12月9日 下午
         </time>
       </span>
     
@@ -233,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          3.2k 字
         
       </span>
     
@@ -244,7 +250,7 @@
         
         
         
-          4 分钟
+          27 分钟
         
       </span>
     
@@ -291,25 +297,137 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">【经典代码】神经网络处理（鸢尾花数据集）</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="神经网络处理（鸢尾花数据集）"><a href="#神经网络处理（鸢尾花数据集）" class="headerlink" title="神经网络处理（鸢尾花数据集）"></a>神经网络处理（鸢尾花数据集）
+</h3>
+<img src="/img/bk.png" srcset="/img/loading.gif" lazyload alt="Code Template">
+    <p>利用鸢尾花数据集，实现前向传播、反向传播，可视化loss曲线 </p>
+    <h5>一、神经网络概述：</h5>
+    <p>1、准备数据：采集大量“特征/标签”数据<br>2、搭建网络：搭建神经网络结构<br>3、优化参数：反向传播<br>4、应用网络：传入新数据，输出分类或预测结果（前向传播）</p>
+    <img src="/img/截图1.png" srcset="/img/loading.gif" lazyload alt="Code Template">
+  <img src="/img/图片2.png" srcset="/img/loading.gif" lazyload alt="前向传播">
+   <h5>二、代码背诵：</h5>
+        <pre -python>       
+<span class="hljs-string">import tensorflow as tf  
+from sklearn import datasets  
+from matplotlib import pyplot as plt  
+import numpy as np  
+  
+# 导入数据，分别为输入特征和标签  
+x_data = datasets.load_iris().data  
+y_data = datasets.load_iris().target  
+  
+# 随机打乱数据（因为原始数据是顺序的，顺序不打乱会影响准确率）  
+# seed: 随机数种子，是一个整数，当设置之后，每次生成的随机数都一样（为方便教学，以保每位同学结果一致）  
+np.random.seed(116)  # 使用相同的seed，保证输入特征和标签一一对应  
+np.random.shuffle(x_data)  
+np.random.seed(116)  
+np.random.shuffle(y_data)  
+tf.random.set_seed(116)  
+  
+# 将打乱后的数据集分割为训练集和测试集，训练集为前120行，测试集为后30行  
+x_train = x_data[:-30]  
+y_train = y_data[:-30]  
+x_test = x_data[-30:]  
+y_test = y_data[-30:]  
+  
+# 转换x的数据类型，否则后面矩阵相乘时会因数据类型不一致报错  
+x_train = tf.cast(x_train, tf.float32)  
+x_test = tf.cast(x_test, tf.float32)  
+  
+# from_tensor_slices函数使输入特征和标签值一一对应。（把数据集分批次，每个批次batch组数据）  
+train_db = tf.data.Dataset.from_tensor_slices((x_train, y_train)).batch(32)  
+test_db = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(32)  
+  
+# 生成神经网络的参数，4个输入特征故，输入层为4个输入节点；因为3分类，故输出层为3个神经元  
+# 用tf.Variable()标记参数可训练  
+# 使用seed使每次生成的随机数相同（方便教学，使大家结果都一致，在现实使用时不写seed）  
+w1 = tf.Variable(tf.random.truncated_normal([4, 3], stddev=0.1, seed=1))  
+b1 = tf.Variable(tf.random.truncated_normal([3], stddev=0.1, seed=1))  
+  
+lr = 0.1  # 学习率为0.1  
+train_loss_results = []  # 将每轮的loss记录在此列表中，为后续画loss曲线提供数据  
+test_acc = []  # 将每轮的acc记录在此列表中，为后续画acc曲线提供数据  
+epoch = 500  # 循环500轮  
+loss_all = 0  # 每轮分4个step，loss_all记录四个step生成的4个loss的和  
+  
+# 训练部分  
+for epoch in range(epoch):  #数据集级别的循环，每个epoch循环一次数据集  
+    for step, (x_train, y_train) in enumerate(train_db):  #batch级别的循环 ，每个step循环一个batch  
+        with tf.GradientTape() as tape:  # with结构记录梯度信息  
+            y = tf.matmul(x_train, w1) + b1  # 神经网络乘加运算  
+            y = tf.nn.softmax(y)  # 使输出y符合概率分布（此操作后与独热码同量级，可相减求loss）  
+            y_ = tf.one_hot(y_train, depth=3)  # 将标签值转换为独热码格式，方便计算loss和accuracy  
+            loss = tf.reduce_mean(tf.square(y_ - y))  # 采用均方误差损失函数mse = mean(sum(y-out)^2)  
+            loss_all += loss.numpy()  # 将每个step计算出的loss累加，为后续求loss平均值提供数据，这样计算的loss更准确  
+        # 计算loss对各个参数的梯度  
+        grads = tape.gradient(loss, [w1, b1])  
+  
+        # 实现梯度更新 w1 = w1 - lr * w1_grad    b = b - lr * b_grad  
+        w1.assign_sub(lr * grads[0])  # 参数w1自更新  
+        b1.assign_sub(lr * grads[1])  # 参数b自更新  
+  
+    # 每个epoch，打印loss信息  
+    print("Epoch {}, loss: {}".format(epoch, loss_all/4))  
+    train_loss_results.append(loss_all / 4)  # 将4个step的loss求平均记录在此变量中  
+    loss_all = 0  # loss_all归零，为记录下一个epoch的loss做准备  
+  
+    # 测试部分  
+    # total_correct为预测对的样本个数, total_number为测试的总样本数，将这两个变量都初始化为0  
+    total_correct, total_number = 0, 0  
+    for x_test, y_test in test_db:  
+        # 使用更新后的参数进行预测  
+        y = tf.matmul(x_test, w1) + b1  
+        y = tf.nn.softmax(y)  
+        pred = tf.argmax(y, axis=1)  # 返回y中最大值的索引，即预测的分类  
+        # 将pred转换为y_test的数据类型  
+        pred = tf.cast(pred, dtype=y_test.dtype)  
+        # 若分类正确，则correct=1，否则为0，将bool型的结果转换为int型  
+        correct = tf.cast(tf.equal(pred, y_test), dtype=tf.int32)  
+        # 将每个batch的correct数加起来  
+        correct = tf.reduce_sum(correct)  
+        # 将所有batch中的correct数加起来  
+        total_correct += int(correct)  
+        # total_number为测试的总样本数，也就是x_test的行数，shape[0]返回变量的行数  
+        total_number += x_test.shape[0]  
+    # 总的准确率等于total_correct/total_number  
+    acc = total_correct / total_number  
+    test_acc.append(acc)  
+    print("Test_acc:", acc)  
+    print("--------------------------")  
+  
+# 绘制 loss 曲线  
+plt.title('Loss Function Curve')  # 图片标题  
+plt.xlabel('Epoch')  # x轴变量名称  
+plt.ylabel('Loss')  # y轴变量名称  
+plt.plot(train_loss_results, label="$Loss$")  # 逐点画出trian_loss_results值并连线，连线图标是Loss  
+plt.legend()  # 画出曲线图标  
+plt.show()  # 画出图像  
+  
+# 绘制 Accuracy 曲线  
+plt.title('Acc Curve')  # 图片标题  
+plt.xlabel('Epoch')  # x轴变量名称  
+plt.ylabel('Acc')  # y轴变量名称  
+plt.plot(test_acc, label="$Accuracy$")  # 逐点画出test_acc值并连线，连线图标是Accuracy  
+plt.legend()  
+plt.show()    
+      </pre>
+      <h4> 三、结果可视化 <h4>
+      <p><img src="/img/iris.png" srcset="/img/loading.gif" lazyload></p>
+</body>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+</html>
                 
               </div>
             
@@ -317,6 +435,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" class="category-chain-item">神经网络</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">#神经网络</a>
+      
+    </div>
   
 </div>
 
@@ -326,20 +472,20 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://example.com/2022/11/26/hello-world/</div>
+      <div>【经典代码】神经网络处理（鸢尾花数据集）</div>
+      <div>http://example.com/2022/12/09/神经网络处理（鸢尾花数据集）/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>Truman</div>
+          <div>Codiplay</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月26日</div>
+          <div>2022年12月9日</div>
         </div>
       
       
@@ -371,9 +517,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/27/hi/" title="hi">
+                      <a href="/2022/12/15/%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" title="Hexo + Github搭建博客">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hi</span>
+                        <span class="hidden-mobile">Hexo + Github搭建博客</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -610,7 +756,7 @@
 
 
   
-<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/qipao.js"></script>
+<script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/yinghua.js"></script>
 <script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/xiaoxingxing.js"></script>
 <script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/caidai.js"></script>
 <script src="//cdn.jsdelivr.net/gh/bynotes/texiao/source/js/timeDate.js"></script>
